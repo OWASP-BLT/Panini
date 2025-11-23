@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "banned_apps"
+version = "0.1.0"
+description = "Standalone Django app for managing banned applications."
+authors = ["OWASP <example@gmail.com>"]
+license = "GNU AFFERO GENERAL PUBLIC LICENSE"
+readme = "README.md"
+
+packages = [
+    { include = "banned_apps" },
+    { include = "banned_apps/migrations" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+Django = ">=3.2"
+
+[tool.poetry.urls]
+homepage = "https://github.com/OWASP-BLT/Panini"
+repository = "https://github.com/OWASP-BLT/Panini"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
