@@ -5,7 +5,7 @@ from .models import BannedApp
 
 
 class BannedAppsView(TemplateView):
-    template_name = "banned_apps/banned_apps.html"
+    template_name = "panini/panini.html"
 
 
 def search_banned_apps(request):

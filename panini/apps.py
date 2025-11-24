@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class BannedAppsConfig(AppConfig):
+class PaniniConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "banned_apps"
+    name = "panini"
     verbose_name = "Banned Applications"

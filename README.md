@@ -1,23 +1,15 @@
-# Banned Apps 
+# Panini
 
-This repository contains the standalone **Banned Apps** Django application, extracted from the BLT project to improve maintainability, modularity, and ownership. It provides:
+Panini is the standalone **Banned Applications** Django module extracted from the BLT project.  
+It contains everything needed to manage, display, and query banned applications, while being fully decoupled from the BLT monorepo.
 
-- A `BannedApp` Django model
-- Admin integration
-- JSON search API endpoint
-- HTML template for displaying banned applications
-- Django migrations
-- Fixtures
-- Clean separation from the BLT monorepo
-
-This module preserves commit history extracted from the BLT repository using git-filter-repo.
-
+This module preserves commit history extracted from BLT using `git-filter-repo`.
 
 ---
 
-## 🚀 Features
+##  Features
 
-### ✔ BannedApp Model  
+###  BannedApp Model  
 Tracks information about banned applications:
 
 - App name  
@@ -28,81 +20,78 @@ Tracks information about banned applications:
 - Source URL  
 - Active status  
 
-### ✔ Views  
-- Template view: displays a simple banned apps page  
-- JSON endpoint: `/banned_apps/search/?country=<query>`  
+###  Views  
+- Template view: displays the banned apps page  
+- JSON endpoint: `/panini/search/?country=<query>`
 
-### ✔ Admin Integration  
-The app registers `BannedApp` under Django admin with basic columns.
+###  Admin Integration  
+The app registers `BannedApp` under Django admin.
 
-### ✔ Fixtures & Migrations  
-A complete database migration and fixture file (`banned_apps.json`) are included.
+###  Fixtures & Migrations  
+Includes:
+
+- Initial migration (`0001_initial.py`)  
+- Sample fixture file (`panini.json`)
 
 ---
 
-## 📦 Installation
+##  Installation
 
-Install directly from GitHub in your Django project:
+Install directly from GitHub:
 
 ```bash
-pip install git+https://github.com/OWASP-BLT/Panini.git#egg=banned_apps
+pip install git+https://github.com/OWASP-BLT/Panini.git#egg=panini
 ```
-## Django Setup
 
-Add the app to your INSTALLED_APPS:
+### Django Setup
 
-```python
+Add the app to your Django project:
+
+```bash
 INSTALLED_APPS = [
     ...
-    "banned_apps",
+    "panini",
 ]
 ```
 
 Include its URL routes:
-
 ```bash
 from django.urls import include, path
 
 urlpatterns = [
     ...
-    path("banned_apps/", include("banned_apps.urls")),
+    path("panini/", include("panini.urls")),
 ]
-
 ```
 
-# Project Structure 
+### Project Structure
 
-```pgsql
-banned_apps/
+panini/
   ├── __init__.py
   ├── admin.py
   ├── apps.py
   ├── fixtures/
-  │     └── banned_apps.json
+  │     └── panini.json
   ├── migrations/
   │     └── 0001_initial.py
   ├── models.py
   ├── templates/
-  │     ├── banned_apps/
-  │     │     └── banned_apps.html
+  │     ├── panini/
+  │     │     └── panini.html
   │     └── includes/
   │           ├── header.html
   │           └── sidenav.html
   ├── urls.py
   └── views.py
+
+Running Migrations
+```bash
+python manage.py migrate panini
 ```
 
-## Running Migrations
-
-After installation:
-
+Load sample data:
 ```bash
-python manage.py migrate banned_apps
-```
-
-To load sample data:
-```bash
-python manage.py loaddata banned_apps
+python manage.py loaddata panini
 ```
 
 ## Development
@@ -113,19 +102,7 @@ git clone https://github.com/OWASP-BLT/Panini.git
 cd Panini
 ```
 
-Install the module in editable mode:
+Install in editable mode:
 ```bash
 pip install -e .
 ```
-
-## Contributing
-
-1. Fork the Panini repo
-
-2. Create a feature branch
-
-3. Commit your changes
-
-4. Submit a PR to the Panini repository
-
-5. Follow Django coding conventions

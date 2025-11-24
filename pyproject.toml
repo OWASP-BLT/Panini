@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "banned_apps"
+name = "panini"  
 version = "0.1.0"
 description = "Standalone Django app for managing banned applications."
 authors = ["OWASP <example@gmail.com>"]
@@ -7,8 +7,8 @@ license = "GNU AFFERO GENERAL PUBLIC LICENSE"
 readme = "README.md"
 
 packages = [
-    { include = "banned_apps" },
-    { include = "banned_apps/migrations" }
+    { include = "panini" },
+    { include = "panini/migrations" }
 ]
 
 [tool.poetry.dependencies]
