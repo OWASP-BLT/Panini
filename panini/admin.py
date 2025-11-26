@@ -9,7 +9,7 @@ class BannedAppAdmin(admin.ModelAdmin):
     search_fields = ("country_name", "country_code", "app_name", "ban_reason")
     date_hierarchy = "ban_date"
     ordering = ("country_name", "app_name")
-
+    readonly_fields = ("created_at", "updated_at")
     fieldsets = (
         ("App Information", {"fields": ("app_name", "app_type")}),
         ("Country Information", {"fields": ("country_name", "country_code")}),
